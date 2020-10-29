@@ -1,27 +1,26 @@
 class DockingStation
   def initialize(y = 20)
-    $DEFAULT_CAPACITY = y
+    @DEFAULT_CAPACITY = y
+    @storage = []
   end
-  @@counter = 1
 
-  def default_reader
-    return $DEFAULT_CAPACITY
-  end
+attr_reader :DEFAULT_CAPACITY
+attr_reader :storage
 
   def release_bike
-    if @@counter == 0
+    if @storage.empty?
       return 'nope'
-    elsif @@counter > 0
-      @@counter -= 1
-      return Bike.new
-    end
+    else
+      @storage.pop
+      Bike.new
+    end 
   end
 
   def docking
     if full? == true
       return 'docking station full'
     else
-      @@counter += 1
+      @storage << Bike.new
       return 'thanks for the bike.'
     end
   end
@@ -29,7 +28,7 @@ class DockingStation
   private
 
   def full?
-    return false if @@counter < $DEFAULT_CAPACITY
+    return false if @storage.length < @DEFAULT_CAPACITY
     return true
   end
 
