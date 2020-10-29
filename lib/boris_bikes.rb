@@ -11,13 +11,19 @@ class DockingStation
   end
 
   def docking
-    if @@counter < 20
+    if self.full? == true
+      return 'docking station full'
+    else
       @@counter += 1
-      return "thanks for the bike."
-    elsif @@counter == 20
-      return "docking station full"
+      return 'thanks for the bike.'
     end
   end
+
+  def full?
+    return false if @@counter < 20
+    return true
+  end
+
 end
 
 class Bike

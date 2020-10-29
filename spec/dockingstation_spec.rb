@@ -19,4 +19,13 @@ describe DockingStation do
     19.times { a.docking }
     expect(subject.docking).to eq('docking station full')
   end
+
+  it 'can check if its full or not' do
+    is_expected.to respond_to :full?
+  end
+
+  it 'when asked if its full it returns a bool' do
+    expect([true, false]).to include(subject.full?)
+  end
+
 end
