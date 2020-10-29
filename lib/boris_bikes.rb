@@ -12,8 +12,7 @@ attr_reader :storage
       return 'nope'
     else
       @storage.pop
-      Bike.new
-    end 
+    end
   end
 
   def docking
