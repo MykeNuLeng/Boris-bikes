@@ -1,6 +1,12 @@
 class DockingStation
-  $DEFAULT_CAPACITY = 20
+  def initialize(y = 20)
+    $DEFAULT_CAPACITY = y
+  end
   @@counter = 1
+
+  def default_reader
+    return $DEFAULT_CAPACITY
+  end
 
   def release_bike
     if @@counter == 0
