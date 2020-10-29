@@ -21,11 +21,13 @@ describe DockingStation do
   end
 
   it 'can check if its full or not' do
-    is_expected.to respond_to :full?
+    result = subject.send(:full?)
+    expect(result).to eq(true)
   end
 
   it 'when asked if its full it returns a bool' do
-    expect([true, false]).to include(subject.full?)
+    result = subject.send(:full?)
+    expect([true, false]).to include(result)
   end
 
 end

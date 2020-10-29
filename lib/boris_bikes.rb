@@ -1,4 +1,5 @@
 class DockingStation
+  $DEFAULT_CAPACITY = 20
   @@counter = 1
 
   def release_bike
@@ -11,7 +12,7 @@ class DockingStation
   end
 
   def docking
-    if self.full? == true
+    if full? == true
       return 'docking station full'
     else
       @@counter += 1
@@ -19,8 +20,10 @@ class DockingStation
     end
   end
 
+  private
+
   def full?
-    return false if @@counter < 20
+    return false if @@counter < $DEFAULT_CAPACITY
     return true
   end
 
