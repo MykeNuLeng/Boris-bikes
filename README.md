@@ -1,2 +1,2 @@
 ## Boris Bikes ##
-The aim of this project is to build a model of London's Boris Bikes, using Ruby.
+The aim of this project is to practice TDD using RSPEC by building a model of London's Boris Bikes, in Ruby!
