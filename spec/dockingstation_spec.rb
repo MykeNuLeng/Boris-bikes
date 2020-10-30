@@ -11,13 +11,13 @@ describe DockingStation do
   end
 
   it 'checks if docking station is empty' do
-    expect(subject.docking).to eq('thanks for the bike.')
+    expect(subject.docking(Bike.new)).to eq('thanks for the bike.')
   end
 
   it "doesn't dock when full" do
     a = DockingStation.new
-    20.times { a.docking }
-    expect(a.docking).to eq('docking station full')
+    20.times { a.docking double(:bike) }
+    expect(a.docking double(:bike)).to eq('docking station full')
   end
 
   it 'can check if its full or not' do
