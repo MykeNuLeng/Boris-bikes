@@ -26,13 +26,12 @@ attr_reader :storage, :busted_bikes, :DEFAULT_CAPACITY
 
   def report
     @busted_bikes << @storage.pop
-    @DEFAULT_CAPACITY += -1
   end
 
   private
 
   def full?
-    return false if @storage.length < @DEFAULT_CAPACITY
+    return false if (@storage.length + @busted_bikes.length) < @DEFAULT_CAPACITY
     return true
   end
 
